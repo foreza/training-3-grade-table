@@ -4,7 +4,6 @@
 <head>
   <title>Student Grade Table - Class 3</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js"></script>
 </head>
 
 <body>
@@ -17,7 +16,7 @@
         <th>Options</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="gradeTableBody">
       <tr>
         <td>Bad Student</td>
         <td>0</td>
@@ -38,6 +37,18 @@
         <td>50</td>
         <td>*</td>
       </tr>
+      <tfoot id="addNewRowForm">
+          <td>
+            <input class="inputNewEntry" id="inputNewStudent" type="text" />
+          </td>
+          <td>
+            <input class="inputNewEntry" id="inputNewGrade" type="text" />
+          </td>
+          <td>
+            <button class="inputNewEntry" onclick="addNewStudentEntry()">
+              <span>Add</span></button>
+          </td>
+      </tfoot>
     </tbody>
   </table>
 
@@ -48,5 +59,6 @@
 </body>
 
 
+<script src="script.js"></script>
 
 </html>

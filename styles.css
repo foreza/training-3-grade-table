@@ -1,3 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 h1 {
+  color: #051014;
   text-align: center;
+  font-size: 3em;
+}
+
+table {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+body {
+  background-color: #ACBDBA;
+}
+
+thead tr , tfoot tr{
+  background: #2E2F2F;
+  color: #CDDDDD;
+  font-size: 2em;
+}
+
+table tbody tr {
+  background-color: #CDDDDD;
+  height: 3em;
+}
+
+table td {
+  text-align: center;
+  color: #051014;
+  font-size: 1.5em;
+}
+
+table tbody tr:hover {
+  background-color: #A599B5;
+  color: #CDDDDD;
+}
+
+
+footer {
+  position: absolute;
+  width: 100%;
+  display: block;
+  text-align: right;
+  height: 50px;
+  background-color: #051014;
+  bottom: 0px;
+}
+
+footer p {
+  color: #CDDDDD;
+  margin: 1em auto;
+  white-space: nowrap;
+  display: table;
+  position: relative;
+}
+
+
+input.inputNewEntry, button.inputNewEntry {
+  vertical-align: 22%;
+  border: none;
+  font-size: 0.5em;
+  text-align: center;
+}
+
+#addNewRowForm button {
+  width: 80%;
+  background-color: #051014;
+  color: #A599B5;
+}
+
+#addNewRowForm button:hover {
+  width: 80%;
+  font-weight: 900;
+  border: 3px dashed #CDDDDD;
 }
