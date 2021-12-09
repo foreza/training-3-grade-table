@@ -79,3 +79,10 @@ input.inputNewEntry, button.inputNewEntry {
   font-weight: 900;
   border: 3px dashed #CDDDDD;
 }
+
+
+button.optionsMenu {
+  width: 80%;
+  margin: 1px auto;
+  display: block;
+}
