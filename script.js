@@ -4,7 +4,22 @@ let tableRef;
 
 let uniqueIDCounter = 0;      // increment this as we add students
 
-function addNewStudentEntry(){
+// Helper function
+function util_createRowButton(onClickFunc, className, textContent) {
+  var newButton = document.createElement("button");
+  newButton.setAttribute("onclick", onClickFunc);
+  newButton.setAttribute("class", className);
+  newButton.textContent = textContent;
+  return newButton;
+}
+
+
+function onclick_AddNewStudent() {
+  addNewStudentEntry(getNameFromInput(), getGradeFromInput());
+}
+
+
+function addNewStudentEntry(name, grade){
 
   // use uniqueIDCounter
 
@@ -20,12 +35,12 @@ function addNewStudentEntry(){
     newOptions.id = `row${uniqueIDCounter}-options`;
 
     let tSpan = document.createElement("span");
-    tSpan.textContent = getNameFromInput();
+    tSpan.textContent = name;
     tSpan.id = `row${uniqueIDCounter}-name-value`;
     newStudent.appendChild(tSpan);
 
     tSpan = document.createElement("span");
-    tSpan.textContent = getGradeFromInput();
+    tSpan.textContent = grade;
     tSpan.id = `row${uniqueIDCounter}-grade-value`;
     newGrade.appendChild(tSpan);
   
@@ -37,27 +52,10 @@ function addNewStudentEntry(){
     let optionsSaveCancelGroup = document.createElement("div");
     optionsSaveCancelGroup.id = `row${uniqueIDCounter}-optionsSaveCancel`;
 
-    let editButton = document.createElement("button");
-    let deleteButton = document.createElement("button");
-
-    let saveButton = document.createElement("button");
-    let cancelButton = document.createElement("button");
-
-    editButton.setAttribute("onclick", `enableRowEditMode(${uniqueIDCounter})`);
-    editButton.setAttribute("class", "optionsMenu");
-    editButton.textContent = "Edit";
-
-    deleteButton.setAttribute("onclick", `deleteRowForID(${uniqueIDCounter})`);
-    deleteButton.setAttribute("class", "optionsMenu");
-    deleteButton.textContent = "Delete";
-
-    saveButton.setAttribute("onclick", `updateStudentForRow(${uniqueIDCounter})`);
-    saveButton.setAttribute("class", "optionsMenu");
-    saveButton.textContent = "Save";
-
-    cancelButton.setAttribute("onclick", `cancelEditForRow(${uniqueIDCounter})`);
-    cancelButton.setAttribute("class", "optionsMenu");
-    cancelButton.textContent = "Cancel";
+    let editButton = util_createRowButton(`enableRowEditMode(${uniqueIDCounter})`, "optionsMenu", "Edit");
+    let deleteButton = util_createRowButton(`deleteRowForID(${uniqueIDCounter})`, "optionsMenu", "Delete");
+    let saveButton = util_createRowButton(`updateStudentForRow(${uniqueIDCounter})`, "optionsMenu", "Save");
+    let cancelButton = util_createRowButton(`cancelEditForRow(${uniqueIDCounter})`, "optionsMenu", "Cancel");
 
     newOptions.appendChild(editButton);
     newOptions.appendChild(deleteButton);
@@ -117,7 +115,6 @@ function documentIsReady() {
   setupInputRef();
   console.log("Document ready");
 }
-
 
 function deleteRowForID(rowID){
   console.log("deleteRowForID: ", rowID);
@@ -204,11 +201,6 @@ function exitRowEditMode(rowID) {
   optionsToHide.hidden = true;
 }
 
-// test function
-function doMockData(){
-  nameInputRef.value = "hi"
-  gradeInputRef.value = 123;
-}
+
 
 documentIsReady();
-doMockData();
