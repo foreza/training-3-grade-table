@@ -18,9 +18,7 @@ function onclick_AddNewStudent() {
   addNewStudentEntry(getNameFromInput(), getGradeFromInput());
 }
 
-
 function addNewStudentEntry(name, grade){
-
   // use uniqueIDCounter
 
   try {
@@ -202,5 +200,21 @@ function exitRowEditMode(rowID) {
 }
 
 
+// Requires the randomuserapi adapter
+async function fetchRandomStudentsForQuantity(qty) {
+
+  if (randomUserAPIAdapter != undefined) {
+    var arr_response = await randomUserAPIAdapter.getStudentsForNumAsync(qty);
+    debugger;
+
+    for (var i = 0; i < arr_response.length; ++i) {
+      addNewStudentEntry(arr_response[i].studentName, arr_response[i].studentGrade)
+    }
+    
+  } else {
+    alert("Something went wrong!")
+  }
+
+}
 
 documentIsReady();
