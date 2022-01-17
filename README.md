@@ -6,13 +6,12 @@
 ## TODO
 - [done]implement update/delete functionality (while updating, allow me to save edit or discard edit)
 - [done] implement AJAX call for fetching students from remote
-- persist students in localstorage (separate branch)
-- implement CRUD operations for students (using local server/db to persist, server to serve html page)
+- [done] persist students in localstorage (separate branch)
+- implement network CRUD operations for students (using local server/db to persist, server to serve html page)
 - add precommit hooks using husky
 - implement backend tests using mocha
 - implement FE tests using testcafe
 - deploy onto heroku/github pages  
-
 
 
 ### Later
